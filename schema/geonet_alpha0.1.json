@@ -1,0 +1,188 @@
+{
+    "$id": "https://geonetwork.io/schemas/alpha0.1.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Geonetwork",
+    "type": "object",
+    "required": ["nodes"],
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "Title of the geonetwork file."
+        },
+        "author": {
+            "type":"string",
+            "description": "Name(s) of the author(s). Comma seperated."
+        },
+        "description": {
+            "type": "string",
+            "description": "Description of the data contained in the geonetwork."
+        },
+        "uid": {
+            "type": "string"
+        },
+        "geonet": {
+            "type": "string"
+        },
+        "created": {
+            "$ref" : "#/$defs/datetime"
+        },
+        "edited": {
+            "$ref" : "#/$defs/datetime"
+        },
+        "nodes": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "required" : ["id"],
+                "properties": {
+                    "id" : {
+                        "type": "string"
+                    },
+                    "coordinates" : {
+                        "$ref": "#/$defs/coordinates"
+                    },
+                    "label": {
+                        "type": "string"
+                    },
+                    "class": {
+                        "type": "string"
+                    },
+                    "from": {
+                        "$ref" : "#/$defs/datetime"
+                    },
+                    "to": {
+                        "$ref" : "#/$defs/datetime"
+                    },
+                    "properties": {
+                        "$ref": "#/$defs/properties"
+                    },
+                    "states": {
+                        "$ref": "#/$defs/states"
+                    }
+                }
+            }
+        },
+        "edges":{
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "source" : {
+                    "$def": "#/$defs/node_ref"
+                    },
+                    "target": {
+                        "$def": "#/$defs/node_ref"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "label": {
+                        "type": "string"
+                    },
+                    "class": {
+                        "type": "string"
+                    },
+                    "from": {
+                        "$ref" : "#/$defs/datetime"
+                    },
+                    "to": {
+                        "$ref": "#/$defs/datetime"
+                    },
+                    "properties": {
+                        "$ref": "#/$defs/properties"
+                    },
+                    "states": {
+                        "$ref": "#/$defs/states"
+                    },
+                    "path": {
+                        "type": "array"
+                    }
+                }
+            }   
+        },
+        "settings": {
+            "type": "object",
+            "properties": {
+                "cursor": {
+                    "$ref": "#/$defs/datetime"
+                },
+                "viewbox": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/coordinate"
+                    },
+                    "minItems": 4
+                },
+                "legend": {
+                    "type": "array"
+                }
+            }
+        }
+    },
+    "$defs": {
+        "datetime" : {
+            "type": "string"
+        },
+        "coordinates": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+                "$ref" : "#/$defs/coordinate"
+            }
+        },
+        "coordinate": {
+            "type": "number",
+            "description": "Coordinate provided in the WSG 1984 system."
+        },
+        "properties": {
+            "type": "object",
+            "properties": {
+                "$size": {
+                    "$ref" : "#/$defs/pixel"
+                },
+                "$fill": {
+                    "$ref": "#/$defs/colorstring"
+                },
+                "$stroke": {
+                    "$ref": "#/$defs/colorstring"
+                }
+            }
+        },
+        "states": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$refs/state"
+            }
+        },
+        "state": {
+            "type": "object",
+            "anyOf" : [
+                {"required": ["from"]},
+                {"required": ["to"]}
+            ],
+            "properties": {
+                "from": {
+                    "$ref": "#/$defs/datetime"
+                },
+                "to": {
+                    "$ref": "#/$defs/datetime"
+                }
+            }
+        },
+        "node_ref": {
+            "OneOf" : [
+                {"type": "integer", "minimum": 0},
+                {"type": "string", "minLength": 1}
+            ]
+        },
+        "pixel": {
+            "type": "number",
+            "minimum": 0
+        },
+        "colorstring": {
+            "type": "string"
+        }
+    }
+  }
