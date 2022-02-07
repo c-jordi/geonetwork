@@ -35,7 +35,7 @@
             "minItems": 1,
             "items": {
                 "type": "object",
-                "required" : ["id"],
+                "required" : ["id","coordinates"],
                 "properties": {
                     "id" : {
                         "type": "string"
@@ -116,14 +116,33 @@
                     "minItems": 4
                 },
                 "legend": {
-                    "type": "array"
+                    "type": "array",
+                    "items" : {
+                        "type": "object",
+                        "required": ["class"],
+                        "properties": {
+                            "class" : {
+                                "type": "string"
+                            },
+                            "label": {
+                                "type": "string"
+                            },
+                            "$fill": {
+                                "$ref": "#/$defs/colorstring"
+                            },
+                            "$stroke": {
+                                "$ref": "#/$defs/colorstring"
+                            }            
+                        }
+                    }
                 }
             }
         }
     },
     "$defs": {
         "datetime" : {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
         },
         "coordinates": {
             "type": "array",
