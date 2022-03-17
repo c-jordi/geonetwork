@@ -44,7 +44,6 @@ class MapView extends NetworkView{
     updateBody(){
         this.drawLines()
         this.drawMarkers()
-        console.log(this)
     }
 
     drawMarkers(){
