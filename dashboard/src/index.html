@@ -8,45 +8,32 @@
     <link rel="icon" type="image/png" href="/icons/favicon_16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="/icons/favicon_32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/icons/favicon_96.png" sizes="96x96">
-    <title>Geonetworks.io</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <title>geonetwork.io</title>
 </head>
+<script>console.log("Welcome to geonetwork.io! \n\nSchema: https://geonetwork.io/schema\nGit repo: https://github.com/c-jordi/geonetwork \n\nWith love,\nJordi")
+</script>
 <body>
     <div id="app">
-        <div id="header">
+        <div id="header" >
             <div class="brand">
                 <div class="icon"><img src='/icons/logo.png' width="30"></img></div>
-                <div class="name">geonetworks.io</div>
+                <div class="name">geonetwork.io</div>
             </div>
         </div>
-        <div id="board">
-            <div class="panel">
-                <div class="header">
-                    <div class="tabs">
-                        <div class="tab active">Map</div> 
-                        <div class="divider"></div>
-                        <div class="tab">Figure</div>
-                        <div class="divider"></div>
-                        <div class="tab">Editor</div>
-                        <div class="divider"></div>
-                    </div>
-                    <div class="title">Distribution of power plants</div>
-                    <div class="controls"><div class="close">×</div></div>
-                </div>
-                <div class="view"></div>
-                <div class="footer">
-                   
-                </div>
-            </div>
+        <div id="board" class='desktop-only'>
+           <div id="drop-zone"></div>
         </div>
-        <div id="footer">
+        <div id="footer" class="desktop-only">
             <div class="navigation">
-                <a href="">Data specification</a>
+                <a href="https://github.com/c-jordi/geonetwork/wiki/Schema-(latest)" target="_blank">Data specification</a>
                 <div class="divider"></div>
-                <a href="">Docs</a>
+                <a href="https://github.com/c-jordi/geonetwork/wiki" target="_blank">Docs</a>
                 <div class="divider"></div>
-                <a href="https://github.com/c-jordi/geonetwork">Github</a>
+                <a href="https://github.com/c-jordi/geonetwork" target="_blank">Github</a>
                 <div class="divider"></div>
-                <a href="/report">Report</a>
+                <a href="https://github.com/c-jordi/geonetwork/issues" target="_blank">Report bugs</a>
             </div>
             <div class="attribution">
                 Developed by <a href="https://jordi.co">Jordi Campos</a> @ <a href="https://rre.ethz.ch/">RRE, ETHZ</a>
@@ -55,7 +42,6 @@
     </div>
    
 </body>
-<script src="./index.js" type="module">
-</script>
+<script src="./index.js" type="module"></script>
 
 </html>

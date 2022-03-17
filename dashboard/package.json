@@ -9,10 +9,12 @@
   "author": "Jordi Campos",
   "license": "MIT",
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.16.8"
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+    "jsdom": "^19.0.0"
   },
   "dependencies": {
-    "jest": "^27.4.7"
+    "jest": "^27.4.7",
+    "leaflet": "^1.7.1"
   },
   "type": "module"
 }
