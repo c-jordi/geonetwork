@@ -17,6 +17,7 @@ class Network {
         this.extractDatetimes()
         this.completeLegend()
         this.completeStyling()
+        this.removeInvalidEdges()
         this.setCursor()
         this.extractStateAtDatetime()
     }
@@ -71,6 +72,14 @@ class Network {
             if (!props.$size) edge.properties.$size = legend_style.$size || styling.edge.size;
             if (!props.$stroke) edge.properties.$stroke = legend_style.$stroke || styling.edge.stroke;
             return edge
+        })
+    }
+
+    removeInvalidEdges(){
+        const node_ids = this.data.nodes.map(node=>node.id)
+    
+        this.data.edges = this.data.edges.filter(edge=>{
+            return (node_ids.includes(edge.source) && node_ids.includes(edge.target))
         })
     }
 
