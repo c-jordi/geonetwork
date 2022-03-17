@@ -1,0 +1,100 @@
+{
+    "title": "CO2 Network",
+    "geonet": "latest",
+    "nodes": [
+        {
+            "id": "zurich",
+            "label": "Zurich",
+            "class": "emitter",
+            "coordinates": [
+                47.3775499,
+                8.4666751
+            ],
+            "properties": {
+                "owner": "Sunshine Inc.",
+                "active_since": 2009,
+                "emissions_tCO2" : 3e6,
+                "$size": 20
+            }
+        },
+        {
+            "id": "basel",
+            "label": "Basel",
+            "class": "emitter",
+            "coordinates": [
+                47.5546492,
+                7.5594405
+            ]
+        },
+        {
+            "id": "mont-terri",
+            "label": "Mont Terri",
+            "class": "storage",
+            "coordinates": [
+                47.389468,
+                7.0985558
+            ]
+        },
+        {
+            "id": "thun",
+            "label": "Thun",
+            "class": "emitter",
+            "coordinates": [
+                46.7402635,
+                7.6031855
+            ]
+        }
+        
+    ],
+    "edges": [
+        {
+            "source": "zurich",
+            "target": "basel",
+            "class": "rail",
+            "properties": {
+                "built_in": 2009,
+                "maintained_by": "SBB",
+                "$size": 3
+            },
+            "states" : [
+                {"to":"2022-12-31", "flow_tCO2":10, "$size": 3},
+                {"from": "2022-12-31", "to":"2023-12-31", "flow_tCO2":20, "$size": 5},
+                {"from": "2023-12-31", "to":"2024-12-31", "flow_tCO2 ":40, "$size": 9}
+            ]
+        },
+        {
+            "source": "thun",
+            "target": "basel",
+            "class": "truck",
+            "properties": {
+                "total_fleet": 400,
+                "$size": 3
+            }
+        },
+        {
+            "source": "basel",
+            "target": "mont-terri",
+            "class": "pipeline",
+            "properties": {
+                "built_in": 2015,
+                "$size": 7
+            }
+        } 
+        
+    ],
+    "settings": {
+        "cursor": "start",
+        "legend": [
+            {"type":"node", "class":"emitter", "label": "CO2 emitter", "$fill": "#fbb13c"},
+            {"type":"node", "class":"storage", "label": "Storage site", "$fill": "#424242"},
+            {"type":"edge", "class":"truck", "label": "Truck", "$stroke": "#535353"},
+            {"type":"edge", "class":"pipeline", "label": "Pipeline", "$stroke": "#218380"},
+            {"type":"edge", "class":"rail", "label": "Rail", "$stroke": "#a8322d"}
+        ],
+        "view": [
+            47.3775499,
+            8.4666751
+        ],
+        "zoom": 10
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "title": "European Trade",
+    "geonet": "latest",
+    "nodes": [
+        {
+            "id": "France",
+            "class": "EU",
+            "coordinates": [
+                48.8588336,
+                2.2769954
+            ],
+            "properties": {
+                "emissions": "126,634,806 tCO2",
+                "$size": 20,
+                "$fill": "blue"
+            }
+        },
+        {
+            "id": "Germany",
+            "class": "EU",
+            "coordinates": [
+                52.5065133,
+                13.144555
+            ],
+            "properties": {
+                "emissions": "487,004,055 tCO2",
+                "$size": 30,
+                "$fill": "red"
+            }
+        }
+    ],
+    "edges": [
+    ],
+    "settings": {
+        "cursor": "start",
+        "legend": [],
+        "view": [
+            47.3775499,
+            8.4666751
+        ],
+        "zoom": 4
+    }
+}
