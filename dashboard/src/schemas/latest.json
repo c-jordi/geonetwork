@@ -113,7 +113,7 @@
                 },
                 "zoom": {
                     "type": "number",
-                    "minimum":0,
+                    "minimum": 0,
                     "maximum": 18
                 },
                 "legend": {
