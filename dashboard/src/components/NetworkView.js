@@ -23,9 +23,9 @@ class NetworkView extends TabView{
         console.log("Draw network:", this.network.state)
     }
 
-    setClassVisibility(indentifier, visible){
+    setClassVisibility(identifier, visible){
         // override in inherited class
-        console.log(class_name, "will be " + (visible? "shown":"hidden")) 
+        console.log(identifier, "will be " + (visible? "shown":"hidden")) 
     }
 
     drawFooter(){
