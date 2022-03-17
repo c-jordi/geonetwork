@@ -108,21 +108,25 @@
                 "cursor": {
                     "$ref": "#/$defs/datetime"
                 },
-                "viewbox": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/$defs/coordinate"
-                    },
-                    "minItems": 4
+                "view": {
+                    "$ref": "#/$defs/coordinates"
+                },
+                "zoom": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 18
                 },
                 "legend": {
                     "type": "array",
                     "items" : {
                         "type": "object",
-                        "required": ["class"],
+                        "required": ["class", "type"],
                         "properties": {
                             "class" : {
                                 "type": "string"
+                            },
+                            "type" : {
+                                "enum" : ["node", "edge"]
                             },
                             "label": {
                                 "type": "string"
@@ -141,8 +145,7 @@
     },
     "$defs": {
         "datetime" : {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
         },
         "coordinates": {
             "type": "array",
